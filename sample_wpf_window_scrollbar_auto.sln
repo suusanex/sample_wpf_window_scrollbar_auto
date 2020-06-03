@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30021.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample_wpf_window_scrollbar_auto", "sample_wpf_window_scrollbar_auto\sample_wpf_window_scrollbar_auto.csproj", "{786747ED-56D4-4B45-8B84-05779126840E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{786747ED-56D4-4B45-8B84-05779126840E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786747ED-56D4-4B45-8B84-05779126840E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786747ED-56D4-4B45-8B84-05779126840E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786747ED-56D4-4B45-8B84-05779126840E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A8869C3-4838-4E34-BD71-643915521F2B}
+	EndGlobalSection
+EndGlobal
