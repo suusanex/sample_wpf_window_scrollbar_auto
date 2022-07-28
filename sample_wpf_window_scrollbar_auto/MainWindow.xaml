@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sample_wpf_window_scrollbar_auto"
         mc:Ignorable="d"
-        Title="MainWindow"  Height="600" Width="800">
+        Title="MainWindow" 
+        SizeToContent="WidthAndHeight">
+    <!--ウインドウサイズの自動変更を止める場合：SizeToContentを削除し、WidthとHeightを指定する-->
     <DockPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <DockPanel>
@@ -25,8 +27,9 @@
                                 </DockPanel>
                             </DockPanel>
                             <Border DockPanel.Dock="Top" BorderThickness="0,2,0,0" Margin="5" BorderBrush="Gray" />
-                            <DockPanel DockPanel.Dock="Top" Margin="0,5,0,0" LastChildFill="False">
-                                <DataGrid DockPanel.Dock="Top" HorizontalAlignment="Left" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Items}" Width="500" Height="200">
+                            <DockPanel DockPanel.Dock="Top" Margin="0,5,0,0">
+                                <TextBlock DockPanel.Dock="Top" Text="サイズ上限の無いDataGrid1"></TextBlock>
+                                <DataGrid DockPanel.Dock="Top" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Items}">
 
                                     <DataGrid.Columns>
                                         <DataGridTextColumn MinWidth="400"
@@ -42,7 +45,34 @@
                                         </DataGridTemplateColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <Button DockPanel.Dock="Top" Margin="5" HorizontalAlignment="Left" Content="ボタン2" Click="Btn2"></Button>
+                                <DockPanel>
+                                    <Button DockPanel.Dock="Top" Margin="5" Content="DataGridへ要素追加" Click="Btn2"></Button>
+                                    <Button DockPanel.Dock="Top" Margin="5" Content="DataGridへ要素10個追加" Click="DataGridAdd10"></Button>
+                                </DockPanel>
+                            </DockPanel>
+                            <Border DockPanel.Dock="Top" BorderThickness="0,2,0,0" Margin="5" BorderBrush="Gray" />
+                            <DockPanel DockPanel.Dock="Top" Margin="0,5,0,0">
+                                <TextBlock DockPanel.Dock="Top" Text="サイズ上限の有るDataGrid2"></TextBlock>
+                                <DataGrid DockPanel.Dock="Top" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Items2}"
+                                          MaxWidth="600" MaxHeight="200" HorizontalAlignment="Left">
+
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn MinWidth="400"
+                                                            Binding="{Binding Item1,
+                                                                      Mode=TwoWay}"
+                                                            Header="項目1" />
+                                        <DataGridTemplateColumn>
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Content="セル内ボタン1" Click="Btn1"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <DockPanel>
+                                    <Button DockPanel.Dock="Top" Margin="5" Content="DataGrid2へ要素10個追加" Click="DataGrid2Add10"></Button>
+                                </DockPanel>
                             </DockPanel>
                         </DockPanel>
                     </DockPanel>
@@ -60,9 +90,16 @@
                         </DockPanel>
                         <DockPanel DockPanel.Dock="Top">
                             <Border DockPanel.Dock="Top" BorderThickness="0,2,0,0" Margin="5" BorderBrush="Gray" />
-                            <DockPanel DockPanel.Dock="Top" Margin="0,5,0,0" HorizontalAlignment="Stretch">
+                            <DockPanel DockPanel.Dock="Top" Margin="0,5,0,0">
+                                <TextBlock DockPanel.Dock="Top" Text="単純な（上限の無い）入力欄"></TextBlock>
+                                <TextBox DockPanel.Dock="Top"/>
+                            </DockPanel>
+                        </DockPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <Border DockPanel.Dock="Top" BorderThickness="0,2,0,0" Margin="5" BorderBrush="Gray" />
+                            <DockPanel DockPanel.Dock="Top" Margin="0,5,0,0">
                                 <TextBlock DockPanel.Dock="Top" Text="横方向のサイズがウインドウサイズ+αまで大きくなる入力欄"></TextBlock>
-                                <TextBox DockPanel.Dock="Top" HorizontalAlignment="Stretch" MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+                                <TextBox DockPanel.Dock="Top" MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" />
                             </DockPanel>
                         </DockPanel>
                     </DockPanel>
