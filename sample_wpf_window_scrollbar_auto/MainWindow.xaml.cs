@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace sample_wpf_window_scrollbar_auto
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {

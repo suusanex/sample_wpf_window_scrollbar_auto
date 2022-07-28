@@ -9,7 +9,7 @@ using System.Windows;
 namespace sample_wpf_window_scrollbar_auto
 {
     /// <summary>
-    /// App.xaml の相互作用ロジック
+    /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
